@@ -1,6 +1,6 @@
 # Ex-6-IMPLEMENTATION-OF-THE-BACK-END-OF-THE-COMPILER-
 IMPLEMENTATION OF THE BACK END OF THE COMPILER 
-# Date :
+# Date : 24-10-2024
 # Aim :
 To write a program to implement the back end of the compiler.
 # ALGORITHM
@@ -11,6 +11,52 @@ To write a program to implement the back end of the compiler.
 5. Target code for the given statement is produced.
 6. Stop the program.
 # PROGRAM
+```
+#include <stdio.h>
+#include <ctype.h> 
+#include <stdlib.h>
+
+int main() {
+int i = 2, j = 0, k = 2, k1 = 0; char ip[10], kk[10];
+FILE *fp;
+
+printf("Enter the filename of the intermediate code: "); scanf("%s", kk);
+
+fp = fopen(kk, "r"); if (fp == NULL) {
+printf("\nError in opening the file\n"); return 1;
+}
+printf("\nStatement\tTarget Code\n\n"); while (fscanf(fp, "%s", ip) != EOF) {
+printf("%s\tMOV %c,R%d SUB ", ip, ip[i + k], j);
+
+if (ip[i + 1] == '+')
+printf("ADD "); else
+printf("SUB ");
+
+if (islower(ip[i])) printf("%c,R%d\n", ip[i + k1], j);
+else
+printf("%c,%c\n", ip[i], ip[i + 2]);
+
+j++;
+k1 = 2;
+k = 0;
+}
+
+fclose(fp);
+ 
+return 0;
+}
+```
 # OUTPUT
+k.txt file
+
+
+
+![image](https://github.com/user-attachments/assets/791528f6-d08a-42cf-83b6-87057f1a976f)
+
+
+## Program Output
+![image](https://github.com/user-attachments/assets/59d18b9d-be61-41e5-aabd-a10df7946d0a)
+
+
 # Result
 The back end of the compiler is implemented successfully, and the output is verified.
